@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultPageMaster.master.cs" Inherits="de1.DefaultPageMaster" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BanhGiaHung_6151071059_made1</title> <!-- Sinh viên ghi chú thông tin như cú pháp yêu cầu trong thẻ title-->
+<asp:ContentPlaceHolder ID="head" runat="server">
+</asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="container">
+        <div id="menu">
+          
+            <asp:Menu ID="navigation" Orientation="Horizontal" StaticDisplayLevels="2" runat="server" DataSourceID="SiteMapDataSource1">
+            </asp:Menu>
+          
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+          
+        </div>
+
+        <div id="banner">
+            <h2>BanhGiaHung_6151071059_made1</h2><!-- Sinh viên ghi chú thông tin như cú pháp yêu cầu trong thẻ title-->
+        </div>
+
+        <div id="breadcrumb">
+            
+            <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+            </asp:SiteMapPath>
+            
+        </div>
+
+        <div id="main">
+            <div id="sidebar">
+                
+                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1">
+                </asp:TreeView>
+                
+            </div>
+
+            <div id="content">
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                     <asp:DataList ID="DataList1" runat="server" DataKeyField="CatID" DataSourceID="SqlDataSource1">
+                         <ItemTemplate>
+                             CatID:
+                             <asp:Label ID="CatIDLabel" runat="server" Text='<%# Eval("CatID") %>' />
+                             <br />
+                             CatName:
+                             <asp:Label ID="CatNameLabel" runat="server" Text='<%# Eval("CatName") %>' />
+                             <br />
+                             CatDescription:
+                             <asp:Label ID="CatDescriptionLabel" runat="server" Text='<%# Eval("CatDescription") %>' />
+                             <br />
+<br />
+                         </ItemTemplate>
+                     </asp:DataList>
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=HUNGBG;Initial Catalog=QLKhoaHoc;Integrated Security=True;Multiple Active Result Sets=True;Trust Server Certificate=True;Application Name=EntityFramework" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
+</asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>© 2024 Company Name. All Rights Reserved.</p>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
